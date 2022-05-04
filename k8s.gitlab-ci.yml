@@ -7,7 +7,6 @@ deploy:
   environment:
     name: k8s
     url: https://84.201.153.31
-  when: manual
   before_script:
     - apk add openssh-client bash
     - eval $(ssh-agent -s)
