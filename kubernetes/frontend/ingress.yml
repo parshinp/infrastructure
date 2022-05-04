@@ -5,11 +5,8 @@ metadata:
   name: frontend
 spec:
   ingressClassName: "nginx"
-  tls:
-    - hosts:
-        - parshin-pavel-02.k8s.praktikum-services.tech
   rules:
-    - host: parshin-pavel-02.k8s.praktikum-services.tech
+    - host: sausagestore1.parshinp.ru
       http:
         paths:
         - path: /
