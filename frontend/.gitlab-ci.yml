@@ -25,9 +25,6 @@ build-front:
    artifacts:
       paths:
          - sausage-store-${VERSION}/public_html
-#   rules:
-#      - changes:
-#           - frontend/*
 
 sonarqube-check-frontend:
   dependencies:
@@ -97,10 +94,6 @@ deploy-frontend:
       /bin/bash -s " < ./compose_front_deploy.sh
   environment:
     name: prod-frontend-docker-compose
-#  rules:
-#    - changes:
-#         - frontend/*
-#      when: manual
 
 notification-slack:
   stage: notification
