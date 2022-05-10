@@ -6,16 +6,14 @@ deploy:
   image: alpine/k8s:1.22.6
   environment:
     name: k8s
-    url: https://84.201.153.31
+    url: https://parshin-pavel-02.k8s.praktikum-services.tech
   before_script:
     - pwd && ls -la
-    #- mkdir -p ~/.kube
-    #- chmod 700 ~/.kube
-    - touch /builds/parshin/infrastructure/config
-    - chmod 700 /builds/parshin/infrastructure/config
-    - cat "$kubeconfig"
-    #> /builds/parshin/infrastructure/config
-    - chmod 644 /builds/parshin/infrastructure/config
-    #- cat ~/.kube/config
+    - mkdir -p ~/.kube
+    - chmod 700 ~/.kube
+    - touch ~/.kube/config
+    - chmod 700 ~/.kube/config
+    - cat "$kubeconfig" > ~/.kube/config
   script:
     - kubectl apply -f kubernetes/ --recursive
+    - rm ~/.kube/config
