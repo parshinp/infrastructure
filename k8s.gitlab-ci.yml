@@ -8,13 +8,14 @@ deploy:
     name: k8s
     url: https://84.201.153.31
   before_script:
-    - apk add openssh-client bash
-    - eval $(ssh-agent -s)
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
-    - chmod 644 ~/.ssh/known_hosts
+    #- apk add openssh-client bash
+    #- eval $(ssh-agent -s)
+    #- echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    #- mkdir -p ~/.ssh
+    #- chmod 700 ~/.ssh
+    #- echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+    #- chmod 644 ~/.ssh/known_hosts
+    - pwd && ls -la
     - mkdir -p ~/.kube
     - chmod 700 ~/.kube
     - cat "$kubeconfig" > ~/.kube/config
