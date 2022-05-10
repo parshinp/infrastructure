@@ -6,7 +6,7 @@ metadata:
   labels:
     app: backend-report
 spec:
-  replicas: 2
+  replicas: 3
   ## Есть и более гибкая стратегии, например, RollingUpdate, которая будет обновлять поды порциями  
   strategy:
     type: Recreate
@@ -19,7 +19,7 @@ spec:
         app: backend-report
     spec:
       containers:
-        - name: backend
+        - name: backend-report
           image: gitlab.praktikum-services.ru:5050/parshin/sausage-store/sausage-backend-report:1.0.64646
           imagePullPolicy: IfNotPresent
           env:
@@ -31,7 +31,7 @@ spec:
                   name: vault
                   key: vault_token
           ports:
-            - name: backend
+            - name: backend-report
               containerPort: 8080
           livenessProbe:
             httpGet:
