@@ -1,2 +1,0 @@
-nexus_user: "{{ vault_nexus_user }}"
-nexus_password: "{{ vault_nexus_password }}"
