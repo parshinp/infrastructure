@@ -6,7 +6,7 @@ metadata:
   labels:
     app: backend-report
 spec:
-  replicas: 1
+  replicas: 2
   ## Есть и более гибкая стратегии, например, RollingUpdate, которая будет обновлять поды порциями  
   strategy:
     type: Recreate
