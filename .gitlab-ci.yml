@@ -40,7 +40,7 @@ kubernetes:
   stage: module-pipelines
   trigger:
     include:
-      - "/kubernetes/.gitlab-ci.yml"
+      - "/k8s.gitlab-ci.yml"
   only:
     changes:
       - kubernetes/**/*
