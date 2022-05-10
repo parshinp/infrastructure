@@ -13,7 +13,8 @@ deploy:
     #- chmod 700 ~/.kube
     - touch /builds/parshin/infrastructure/config
     - chmod 700 /builds/parshin/infrastructure/config
-    - cat "$kubeconfig" > /builds/parshin/infrastructure/config
+    - cat "$kubeconfig"
+    #> /builds/parshin/infrastructure/config
     - chmod 644 /builds/parshin/infrastructure/config
     #- cat ~/.kube/config
   script:
