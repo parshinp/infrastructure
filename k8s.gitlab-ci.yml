@@ -8,6 +8,7 @@ deploy:
     name: k8s
     url: https://84.201.153.31
   before_script:
+    - kubectl version
     #- apk add openssh-client bash
     #- eval $(ssh-agent -s)
     #- echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
@@ -20,5 +21,6 @@ deploy:
     - chmod 700 ~/.kube
     - cat "$kubeconfig" > ~/.kube/config
     - chmod 644 ~/.kube/config
+    - cat ~/.kube/config
   script:
     - kubectl apply -f kubernetes/ --recursive
