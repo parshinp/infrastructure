@@ -9,7 +9,10 @@ spec:
   replicas: 1
   # Есть и более гибкая стратегии, например, RollingUpdate, которая будет обновлять поды порциями  
   strategy:
-    type: Recreate
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 3
   selector:
     matchLabels:
       app: backend-report
