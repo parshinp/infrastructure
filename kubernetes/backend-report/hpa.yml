@@ -4,7 +4,7 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: backend-report-hpa
   labels:
-    app: backend-report-hpa
+    app: backend-report
 spec:
   minReplicas: 1
   maxReplicas: 5
@@ -16,6 +16,4 @@ spec:
     — type: Resource
       resource:
         name: cpu
-        target:
-          type: Utilization
-          averageUtilization: 75 
+        targetAverageUtilization: 75
