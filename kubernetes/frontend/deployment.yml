@@ -44,3 +44,4 @@ spec:
                      operator: In
                      values:
                      - frontend
+                topologyKey: "kubernetes.io/hostname"
