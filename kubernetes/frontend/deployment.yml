@@ -30,15 +30,16 @@ spec:
               #   - frontend
        affinity:
          podAntiAffinity: 
-           requiredDuringSchedulingIgnoredDuringExecution: 
-            podAffinityTerm:
-            - labelSelector:
+           requiredDuringSchedulingIgnoredDuringExecution:
+           - weight: 100
+             podAffinityTerm:
+             - labelSelector:
                 matchExpressions:
                 - key: "app" 
                   operator: In 
                   values:
                   - frontend 
-              topologyKey: topology.kubernetes.io/zone
+             topologyKey: kubernetes.io/hostname
       containers:
         - name: frontend
           image: gitlab.praktikum-services.ru:5050/parshin/sausage-store/sausage-frontend:1.0.64692
