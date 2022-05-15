@@ -6,9 +6,13 @@ metadata:
   labels:
     app: backend
 spec:
-  replicas: 1
+  replicas: 3
+  revisionHistoryLimit: 15
   strategy:
-    type: Recreate
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 20%
   selector:
     matchLabels:
       app: backend
@@ -21,6 +25,13 @@ spec:
         - name: backend
           image: gitlab.praktikum-services.ru:5050/parshin/sausage-store/sausage-backend:1.0.63128
           imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: 0.1
+            limits:
+              memory: "1025Mi"
+              cpu: 0.2 
           env:
             - name: SPRING_VAULT_HOST
               value: 130.193.38.73
