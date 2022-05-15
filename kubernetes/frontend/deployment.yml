@@ -39,7 +39,7 @@ spec:
                   operator: In 
                   values:
                   - frontend 
-             topologyKey: kubernetes.io/hostname
+             topologyKey: topology.kubernetes.io/zone
       containers:
         - name: frontend
           image: gitlab.praktikum-services.ru:5050/parshin/sausage-store/sausage-frontend:1.0.64692
