@@ -36,7 +36,7 @@ spec:
       imagePullSecrets:
         - name: docker-config-secret
       affinity:
-        podAntiAffinity:
+        nodeAffinity:
            requiredDuringSchedulingIgnoredDuringExecution:
              - labelSelector:
                  matchExpressions:
@@ -44,4 +44,3 @@ spec:
                      operator: In
                      values:
                      - frontend
-                topologyKey: "kubernetes.io/hostname"
