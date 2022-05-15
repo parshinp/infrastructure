@@ -21,12 +21,12 @@ spec:
       affinity:
         nodeAffinity:
            requiredDuringSchedulingIgnoredDuringExecution:
-             - labelSelector:
-                 matchExpressions:
-                   - key: app
-                     operator: In
-                     values:
-                     - frontend
+             nodeSelectorTerms:
+             - matchExpressions:
+               - key: app
+                 operator: In
+                 values:
+                 - frontend
       containers:
         - name: frontend
           image: gitlab.praktikum-services.ru:5050/parshin/sausage-store/sausage-frontend:1.0.64692
