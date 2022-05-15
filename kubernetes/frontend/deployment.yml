@@ -16,8 +16,8 @@ spec:
       labels:
         app: frontend
     spec:
-      nodeSelector:
-        app: frontend
+    #  nodeSelector:
+    #    app: frontend
       affinity:
         nodeAffinity:
            requiredDuringSchedulingIgnoredDuringExecution:
