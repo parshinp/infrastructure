@@ -6,6 +6,15 @@ metadata:
   labels:
     app: frontend
 spec:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: app
+            operator: In
+            values:
+            - frontend
   revisionHistoryLimit: 15
   replicas: 6
   selector:
