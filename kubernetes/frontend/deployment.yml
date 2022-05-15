@@ -16,8 +16,15 @@ spec:
       labels:
         app: frontend
     spec:
-      #nodeSelector:
-      #  app: frontend
+      affinity:
+        nodeAffinity:
+           requiredDuringSchedulingIgnoredDuringExecution:
+             - labelSelector:
+                 matchExpressions:
+                   - key: app
+                     operator: In
+                     values:
+                     - frontend
       containers:
         - name: frontend
           image: gitlab.praktikum-services.ru:5050/parshin/sausage-store/sausage-frontend:1.0.64692
@@ -35,12 +42,3 @@ spec:
           name: sausagestore-configmap
       imagePullSecrets:
         - name: docker-config-secret
-      affinity:
-        nodeAffinity:
-           requiredDuringSchedulingIgnoredDuringExecution:
-             - labelSelector:
-                 matchExpressions:
-                   - key: app
-                     operator: In
-                     values:
-                     - frontend
